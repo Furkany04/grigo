@@ -17,40 +17,6 @@ If Wishes Could Kill (기리고) dizisinden ilham alınan eğlence amaçlı PWA 
 
 ---
 
-## 🚀 GitHub Pages'e Yükleme (Adım Adım)
-
-### 1. GitHub'da yeni repo oluştur
-- github.com → "New repository"
-- İsim: `girigo` (veya istediğin isim)
-- Public seç
-- "Create repository"
-
-### 2. Dosyaları yükle
-```
-index.html
-manifest.json
-sw.js
-icon-192.png
-icon-512.png
-README.md
-```
-
-Tüm bu dosyaları repo'ya sürükle-bırak yap veya git ile push et.
-
-### 3. GitHub Pages'i aç
-- Repo → Settings → Pages
-- Source: **Deploy from a branch**
-- Branch: **main** → **/ (root)**
-- Save
-
-### 4. Birkaç dakika bekle
-Link hazır:
-```
-https://KULLANICI_ADIN.github.io/REPO_ADIN/
-```
-
----
-
 ## 📲 Telefona Kurulum
 
 ### Android (Chrome)
