@@ -2,10 +2,11 @@
   "name": "기리고 • Girigo",
   "short_name": "기리고",
   "description": "Dileğini yaz. Kabul edilirse bedeli ödenecek.",
-  "start_url": "/",
+  "start_url": "/grigo/",
+  "scope": "/grigo/",
   "display": "standalone",
-  "background_color": "#080808",
-  "theme_color": "#080808",
+  "background_color": "#060606",
+  "theme_color": "#060606",
   "orientation": "portrait-primary",
   "lang": "tr",
   "icons": [
@@ -22,6 +23,5 @@
       "purpose": "any maskable"
     }
   ],
-  "screenshots": [],
   "categories": ["entertainment"]
 }
