@@ -339,8 +339,6 @@ function showBanner(msg) {
    Telefon kilitli olsa bile Chrome/Android'de çalışır.
    iOS'ta uygulamanın Ana Ekrana eklenmiş olması gerekir. */
   async function scheduleNotif(delayMs, msg) {
-    const pid = localStorage.getItem('os_pid');
-    if (!pid) return;
     const t = new Date(Date.now() + delayMs);
     const p = n => String(n).padStart(2,'0');
     const dateStr = `${t.getUTCFullYear()}-${p(t.getUTCMonth()+1)}-${p(t.getUTCDate())} ${p(t.getUTCHours())}:${p(t.getUTCMinutes())}:${p(t.getUTCSeconds())} UTC`;
@@ -353,9 +351,9 @@ function showBanner(msg) {
         },
         body: JSON.stringify({
           app_id: 'db68e87b-bfc6-4d57-a5b2-933d22df78c8',
-          include_subscription_ids: [pid],
-          headings: { tr: '기리고 · Girigo' },
-          contents: { tr: msg },
+          included_segments: ['Total Subscriptions'],
+          headings: { tr: '기리고 · Girigo', en: '기리고 · Girigo' },
+          contents: { tr: msg, en: msg },
           send_after: dateStr
         })
       });
