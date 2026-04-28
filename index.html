@@ -130,15 +130,6 @@
         appId: "930d907d-f7b3-4da5-836d-b653781f940b",
         serviceWorkerParam: { scope: "/grigo/" },
         serviceWorkerPath: "OneSignalSDK.sw.js",
-        promptOptions: {
-          slidedown: {
-            prompts: [{
-              type: "push",
-              autoPrompt: true,
-              delay: { pageViews: 1, timeDelay: 2 }
-            }]
-          }
-        }
       });
       const saveId = () => {
         const id = OneSignal.User.PushSubscription.id;
