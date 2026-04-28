@@ -338,22 +338,29 @@ function showBanner(msg) {
    SW'ye mesaj gönder → SW setTimeout ile bildirim atar.
    Telefon kilitli olsa bile Chrome/Android'de çalışır.
    iOS'ta uygulamanın Ana Ekrana eklenmiş olması gerekir. */
-function scheduleNotif(delayMs, msg) {
-  if (!('serviceWorker' in navigator) || !('Notification' in window)) return;
-
-  const doIt = () => {
-    navigator.serviceWorker.ready.then(reg => {
-      if (reg.active) {
-        reg.active.postMessage({ type:'SCHEDULE', delay: delayMs, msg });
-      }
-    }).catch(() => {});
-  };
-
-  if (Notification.permission === 'granted') { doIt(); return; }
-  if (Notification.permission !== 'denied') {
-    Notification.requestPermission().then(p => { if(p === 'granted') doIt(); });
+  async function scheduleNotif(delayMs, msg) {
+    const pid = localStorage.getItem('os_pid');
+    if (!pid) return;
+    const t = new Date(Date.now() + delayMs);
+    const p = n => String(n).padStart(2,'0');
+    const dateStr = `${t.getUTCFullYear()}-${p(t.getUTCMonth()+1)}-${p(t.getUTCDate())} ${p(t.getUTCHours())}:${p(t.getUTCMinutes())}:${p(t.getUTCSeconds())} UTC`;
+    try {
+      await fetch('https://onesignal.com/api/v1/notifications', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Basic os_v2_app_3nuoq657yzgvpjnssm6sfx3yzdiofjz46vyuvamyg6wrqvlrs6c2alvxkhgzpcueofncr2sputcjqzznkvjmc4wzv3t3lvou5dtvmta'
+        },
+        body: JSON.stringify({
+          app_id: 'db68e87b-bfc6-4d57-a5b2-933d22df78c8',
+          include_subscription_ids: [pid],
+          headings: { tr: '기리고 · Girigo' },
+          contents: { tr: msg },
+          send_after: dateStr
+        })
+      });
+    } catch(e) {}
   }
-}
 
 /* ── ANALOG SAAT ── */
 const canvas = document.getElementById('clock-canvas');
