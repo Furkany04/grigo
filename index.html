@@ -343,12 +343,9 @@ function showBanner(msg) {
     const p = n => String(n).padStart(2,'0');
     const dateStr = `${t.getUTCFullYear()}-${p(t.getUTCMonth()+1)}-${p(t.getUTCDate())} ${p(t.getUTCHours())}:${p(t.getUTCMinutes())}:${p(t.getUTCSeconds())} UTC`;
     try {
-      await fetch('https://onesignal.com/api/v1/notifications', {
+      await fetch('https://grigo-notif.furkan-yildiz-k-c55.workers.dev', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': 'Basic os_v2_app_3nuoq657yzgvpjnssm6sfx3yzdiofjz46vyuvamyg6wrqvlrs6c2alvxkhgzpcueofncr2sputcjqzznkvjmc4wzv3t3lvou5dtvmta'
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           app_id: 'db68e87b-bfc6-4d57-a5b2-933d22df78c8',
           included_segments: ['Total Subscriptions'],
