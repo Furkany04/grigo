@@ -139,6 +139,18 @@
     .nb-msg{font-size:13px;color:var(--text)}
     .nb-time{font-size:10px;color:var(--text-dim);white-space:nowrap}
   </style>
+
+  <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+  <script>
+    window.OneSignalDeferred = window.OneSignalDeferred || [];
+    OneSignalDeferred.push(async function(OneSignal) {
+      await OneSignal.init({
+        appId: "db68e87b-bfc6-4d57-a5b2-933d22df78c8",
+        serviceWorkerParam: { scope: "/grigo/" },
+        serviceWorkerPath: "OneSignalSDK.sw.js"
+      });
+    });
+  </script>
 </head>
 <body>
 <div id="app">
