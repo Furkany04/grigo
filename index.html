@@ -149,6 +149,12 @@
         serviceWorkerParam: { scope: "/grigo/" },
         serviceWorkerPath: "OneSignalSDK.sw.js"
       });
+      const saveId = () => {
+        const id = OneSignal.User.PushSubscription.id;
+        if (id) localStorage.setItem('os_pid', id);
+      };
+      saveId();
+      OneSignal.User.PushSubscription.addEventListener('change', saveId);
     });
   </script>
 </head>
