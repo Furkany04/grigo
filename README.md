@@ -12,7 +12,6 @@ If Wishes Could Kill (기리고) dizisinden ilham alınan eğlence amaçlı PWA 
 - **5 dakika** sonra otomatik "Kabul Edildi" bildirimi
 - **24 saatlik** geri sayım sayacı
 - iOS ve Android'de tam ekran uygulama gibi çalışır
-- Çevrimdışı destek (Service Worker)
 - Kan damlası animasyonları ve korku estetiği
 
 ---
